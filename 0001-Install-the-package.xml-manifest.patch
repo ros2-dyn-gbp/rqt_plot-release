@@ -1,0 +1,24 @@
+From 09919f5ef0b1234639f3cf6c5aa10d4dc75698ed Mon Sep 17 00:00:00 2001
+From: Scott K Logan <logans@cottsay.net>
+Date: Fri, 22 Mar 2024 20:42:47 -0500
+Subject: [PATCH] Install the package.xml manifest
+
+---
+ rpm/ros-rolling-rqt-plot.spec | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/rpm/ros-rolling-rqt-plot.spec b/rpm/ros-rolling-rqt-plot.spec
+index 77c311211fbc..2a15bfd93849 100644
+--- a/rpm/ros-rolling-rqt-plot.spec
++++ b/rpm/ros-rolling-rqt-plot.spec
+@@ -57,6 +57,7 @@ different plotting backends.
+ 
+ %install
+ %py3_install -- --prefix "%{bloom_prefix}"
++install -m0644 -p -D package.xml %{buildroot}%{bloom_prefix}/share/%{pkg_name}/package.xml
+ 
+ 
+ %if 0%{?with_tests}
+-- 
+2.44.0
+
